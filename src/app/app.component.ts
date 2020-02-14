@@ -11,7 +11,7 @@ export class AppComponent {
 
   email:string;
   password:string;
-  url = 'http://localhost:3000/1';
+  url = 'http://localhost:3000/posts';
   title = 'login-angular-app';
   
 
