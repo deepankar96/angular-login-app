@@ -7,11 +7,6 @@ import { employee } from '../../model';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
-  // users: employee[] = [
-  //   {id:0,name:"Deepankar",username:"deepankar"},
-  //   {id:1,name:"test",username:"test"}
-  // ];
   
   @Input() users:employee[]=[];
   
