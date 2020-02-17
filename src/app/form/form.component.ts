@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output,Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
 import {employee} from '../../model';
@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   url_get = 'http://localhost:3000/posts';
   url_post = 'http://localhost:3000/test';
   title = 'login-angular-app';
-  id: number = 0;
+  @Input() id:number;
   @Output() empCreated = new EventEmitter();
   
   constructor(private http:HttpClient){
@@ -29,24 +29,17 @@ export class FormComponent implements OnInit {
 
   
 
-
-
-  onType(){
-    this.http.get(this.url_get).toPromise().then(
-      data =>{
-        console.log(data);
-      }
-    );
-  }
-
   onTypenew(){
-    const emp = {
+    this.id+=1;
+    const sendingData:employee = {
       id:this.id,
       email:this.email,
       username:this.username
     }
-    this.id += 1;
-    this.empCreated.emit(emp);
+    this.http.post<{message:string}>(this.url_post,sendingData).subscribe((responseData)=>{
+      if(responseData.message == "success"){
+      this.empCreated.emit(sendingData);}
+    })
   }
 
 }

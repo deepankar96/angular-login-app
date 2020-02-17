@@ -1,3 +1,4 @@
 <app-header></app-header>
-<app-form (empCreated)="addUsers($event)"></app-form>
+<br>
+<app-form (empCreated)="addUsers($event)" [id]="numberOfUsers"></app-form>
 <app-user-list [users]="users"></app-user-list>
