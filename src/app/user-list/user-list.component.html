@@ -1,10 +1,11 @@
-<mat-accordion>
+<mat-accordion *ngIf="users.length>0">
     <mat-expansion-panel *ngFor="let employees of users">
         <mat-expansion-panel-header>
             {{employees.id}}
         </mat-expansion-panel-header>
     <p>
-        Name:{{employees.name}}<br>Username:{{employees.username}}
+        Name:{{employees.email}}<br>Username:{{employees.username}}
     </p>
     </mat-expansion-panel>
 </mat-accordion>
+<p class = "info-text mat-body1" *ngIf="users.length<=0">No Users Available</p>

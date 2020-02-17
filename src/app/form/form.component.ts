@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
 import {employee} from '../../model';
@@ -12,12 +12,13 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password:string;
+  email:string;
+  username:string;
   url_get = 'http://localhost:3000/posts';
   url_post = 'http://localhost:3000/test';
   title = 'login-angular-app';
   id: number = 0;
+  @Output() empCreated = new EventEmitter();
   
   constructor(private http:HttpClient){
     
@@ -27,7 +28,6 @@ export class FormComponent implements OnInit {
   }
 
   
-  employee: employee[] = [];
 
 
 
@@ -40,11 +40,13 @@ export class FormComponent implements OnInit {
   }
 
   onTypenew(){
-    this.http.post(this.url_post,this.email).toPromise().then(
-      data =>{
-        console.log(data);
-      }
-    ) 
+    const emp = {
+      id:this.id,
+      email:this.email,
+      username:this.username
+    }
+    this.id += 1;
+    this.empCreated.emit(emp);
   }
 
 }

@@ -1,5 +1,11 @@
 <mat-card>
-    <div class="form">
-        
-    </div>
+    <mat-form-field>
+        <input matInput type="email" placeholder="Email" [(ngModel)]="email">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput  type ="text" placeholder="Username" [(ngModel)]="username">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="onTypenew()">Add Employee</button>
 </mat-card>

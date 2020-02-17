@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import{ employee }from '../model';
 
 
 @Component({
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+users:employee[] = []
+
+addUsers(user){
+  this.users.push(user);
+}
+
 
 
 }
