@@ -1,4 +1,8 @@
 <app-header></app-header>
 <br>
-<app-form (empCreated)="addUsers($event)" [id]="numberOfUsers"></app-form>
-<app-user-list [users]="users"></app-user-list>
+<!-- <app-form (empCreated)="addUsers($event)" [id]="numberOfUsers"></app-form>
+<app-user-list [users]="users"></app-user-list> -->
+<app-dept-data-display-box [departments]="departments" [courses]="courses"></app-dept-data-display-box>
+<app-footer></app-footer>
+
+
