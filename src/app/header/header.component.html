@@ -1,1 +1,9 @@
-<mat-toolbar color="primary">Departments</mat-toolbar>
+<mat-toolbar color="primary">
+    <span><a routerLink="/">Departments</a></span>
+    <span class="spacer"></span>
+    <ul>
+        <li>
+            <a mat-button routerLink="/addDepartment" routerLinkActive="mat-accent">Add Department</a>
+        </li>
+    </ul>
+</mat-toolbar>

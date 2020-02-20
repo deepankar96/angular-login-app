@@ -1,8 +1,13 @@
 <app-header></app-header>
 <br>
+<mat-card>
 <!-- <app-form (empCreated)="addUsers($event)" [id]="numberOfUsers"></app-form>
 <app-user-list [users]="users"></app-user-list> -->
-<app-dept-data-display-box [departments]="departments" [courses]="courses"></app-dept-data-display-box>
+<!-- department and courses -->
+<!-- <app-dept-data-add ></app-dept-data-add>
+<br>
+<app-dept-data-display-box></app-dept-data-display-box>
+<br> -->
+<router-outlet></router-outlet>
 <app-footer></app-footer>
-
-
+</mat-card>

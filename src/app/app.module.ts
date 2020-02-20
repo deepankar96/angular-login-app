@@ -31,6 +31,9 @@ import { DeptDataDisplayBoxComponent } from './dept-data-display-box/dept-data-d
 import { DepartmentDisplayBoxComponent } from './dept-data-display-box/department-display-box/department-display-box.component';
 import { CourseDisplayBoxComponent } from './dept-data-display-box/course-display-box/course-display-box.component';
 import { FooterComponent } from './footer/footer.component';
+import { DeptDataAddComponent } from './dept-data-add/dept-data-add.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { DepartmentAddComponent } from './department-add/department-add.component'
 
 
 @NgModule({
@@ -43,6 +46,9 @@ import { FooterComponent } from './footer/footer.component';
     DepartmentDisplayBoxComponent,
     CourseDisplayBoxComponent,
     FooterComponent,
+    DeptDataAddComponent,
+    DepartmentListComponent,
+    DepartmentAddComponent,
   ],
   imports: [
     BrowserModule,
