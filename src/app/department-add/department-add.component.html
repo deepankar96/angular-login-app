@@ -13,19 +13,21 @@
     <br>
     <button mat-raised-button color="primary" (click)="onNewDepartment()">Add Department</button>
 </mat-card> -->
+
+
+
 <mat-card class="input-filed">
-    <form (submit)="onNewDepartment()" #postForm="ngForm">
+    <form (submit)="onNewDepartment(postForm)" #postForm="ngForm">
         <mat-form-field>
-            <input matInput type="text" name="collegeid" placeholder="College ID" required >
-            <mat-error *ngIf="postForm.invalid">Enter Details</mat-error>
+            <input matInput type="text" name="collegeid" placeholder="College ID" required ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput  type ="text" name="departmentid" placeholder="Department ID" required>
+            <input matInput  type ="text" name="departmentid" placeholder="Department ID" required ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput  type ="text" name="departmentname"placeholder="Department Name" required>
+            <input matInput  type ="text" name="departmentname"placeholder="Department Name" required ngModel>
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit">Add Department</button>

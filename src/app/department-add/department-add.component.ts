@@ -17,16 +17,22 @@ export class DepartmentAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNewDepartment(form:NgForm){
-    if (form.invalid){
+  onNewDepartment(postForm:NgForm){
+    console.log(postForm.value)
+    if (postForm.invalid){
       return
     }
     const sendingData:department = {
       id:this.deptid,
-      collegeid:form.value.collegeid,
-      departmentid:form.value.departmentid,
-      departmentname:form.value.departmentname,
+      collegeid:postForm.value.collegeid,
+      departmentid:postForm.value.departmentid,
+      departmentname:postForm.value.departmentname,
     }
     this.DepartmentServices.addDepartment(sendingData);
+  }
+
+
+  checkForm(form: NgForm){
+    console.log(form.value)
   }
 }
