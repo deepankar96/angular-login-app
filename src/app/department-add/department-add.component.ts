@@ -3,6 +3,7 @@ import { department } from 'src/model';
 import { DepartmentService } from '../app.services';
 import { NgForm } from '@angular/forms';
 import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-department-add',
@@ -11,8 +12,8 @@ import { from } from 'rxjs';
 })
 export class DepartmentAddComponent implements OnInit {
   deptid=0;
-
-  constructor(public DepartmentServices:DepartmentService) { }
+  url_post="http://localhost:3000/api/adddept";
+  constructor(public DepartmentServices:DepartmentService,private http:HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -28,11 +29,10 @@ export class DepartmentAddComponent implements OnInit {
       departmentid:postForm.value.departmentid,
       departmentname:postForm.value.departmentname,
     }
-    this.DepartmentServices.addDepartment(sendingData);
+    this.http.post<{message:string}>(this.url_post,sendingData).subscribe((responseData)=>{
+      if(responseData.message == "success"){
+        this.DepartmentServices.addDepartment(sendingData);}
+    })
   }
 
-
-  checkForm(form: NgForm){
-    console.log(form.value)
-  }
 }

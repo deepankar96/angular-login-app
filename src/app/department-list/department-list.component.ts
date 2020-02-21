@@ -14,7 +14,7 @@ export class DepartmentListComponent implements OnInit,OnDestroy {
   constructor(public DepartmentServices:DepartmentService) { }
 
   ngOnInit(): void {
-    this.departments = this.DepartmentServices.getDepartment()
+    this.DepartmentServices.getDepartment()
     this.departmentSub = this.DepartmentServices.getDepartmentListstner().subscribe(
       (departments:department[])=>{
         this.departments = departments;
