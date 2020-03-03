@@ -29,6 +29,9 @@ export class DepartmentAddComponent implements OnInit {
       collegeid:postForm.value.collegeid,
       departmentid:postForm.value.departmentid,
       departmentname:postForm.value.departmentname,
+      hodid:postForm.value.hodid,
+      departmentemail:postForm.value.departmentemail,
+      departmentpassword:postForm.value.departmentpassword
     }
     this.http.post<{message:string}>(this.url_post,sendingData).subscribe((responseData)=>{
       if(responseData.message == "success"){

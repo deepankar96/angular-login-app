@@ -9,6 +9,9 @@ export interface department{
     collegeid:string;
     departmentid:string;
     departmentname:string;
+    hodid:string;
+    departmentemail:string;
+    departmentpassword:string;
 }
 
 export interface course{
