@@ -12,7 +12,7 @@ export class DepartmentDisplayBoxComponent implements OnInit {
   constructor(public departmentservice:DepartmentService) { }
 
   ngOnInit(): void {
-      this.departments = this.departmentservice.getDepartment();
+     // this.departments = this.departmentservice.getDepartment();
   }
 
 }

@@ -4,6 +4,7 @@ import { DepartmentService } from '../app.services';
 import { NgForm } from '@angular/forms';
 import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-department-add',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class DepartmentAddComponent implements OnInit {
   deptid=0;
   url_post="http://localhost:3000/api/adddept";
-  constructor(public DepartmentServices:DepartmentService,private http:HttpClient) { }
+  constructor(public DepartmentServices:DepartmentService,private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +32,9 @@ export class DepartmentAddComponent implements OnInit {
     }
     this.http.post<{message:string}>(this.url_post,sendingData).subscribe((responseData)=>{
       if(responseData.message == "success"){
-        this.DepartmentServices.addDepartment(sendingData);}
+        this.DepartmentServices.addDepartment(sendingData);
+        this.router.navigate(['department'])
+      }
     })
   }
 

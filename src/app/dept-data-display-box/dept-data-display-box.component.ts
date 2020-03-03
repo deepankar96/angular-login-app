@@ -11,7 +11,7 @@ export class DeptDataDisplayBoxComponent implements OnInit {
   constructor(public departmentService:DepartmentService) { }
 
   ngOnInit(): void {
-    this.departments =  this.departmentService.getDepartment();
+    //this.departments =  this.departmentService.getDepartment();
   }
 
   @Input() courses:course[] = [];

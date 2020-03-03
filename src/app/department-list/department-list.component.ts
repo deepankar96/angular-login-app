@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { department } from 'src/model';
 import { DepartmentService } from '../app.services';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -11,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class DepartmentListComponent implements OnInit,OnDestroy {
   departments:department[] = [];
   private departmentSub:Subscription;
-  constructor(public DepartmentServices:DepartmentService) { }
+  constructor(public DepartmentServices:DepartmentService,private router:Router) { }
 
   ngOnInit(): void {
     this.DepartmentServices.getDepartment()
@@ -24,6 +25,10 @@ export class DepartmentListComponent implements OnInit,OnDestroy {
 
   ngOnDestroy():void{
     this.departmentSub.unsubscribe();
+  }
+
+  addDepartment(){
+    this.router.navigate(['addDepartment'])
   }
 
 }

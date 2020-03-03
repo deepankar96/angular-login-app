@@ -4,10 +4,12 @@ import { DeptDataAddComponent } from './dept-data-add/dept-data-add.component';
 import { AppComponent } from './app.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DepartmentAddComponent } from './department-add/department-add.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
-  {path:'',component: DepartmentListComponent},
+  {path:'',component:HomepageComponent},
+  {path:'department',component: DepartmentListComponent},
   {path:'addDepartment', component:DepartmentAddComponent}
 ];
 
