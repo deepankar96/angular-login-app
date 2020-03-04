@@ -20,4 +20,15 @@ export interface course{
     departmentid:string;
     courseid:string;
     coursename:string;
+    courseduration:string;
+    coursedivison:string;
+}
+
+export interface college{
+    id:number;
+    collegeName:string;
+    collegePassword:string;
+    collegeId:string;
+    collegeLocation:string;
+    collegeAddress:string;
 }

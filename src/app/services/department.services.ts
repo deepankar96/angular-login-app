@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class DepartmentService{
     private departments:department[] = [];
-    private postUpdated = new Subject<department[]>();
+    private departmentUpdated = new Subject<department[]>();
     numberofDepartments:number;
     get_dept = 'http://localhost:3000/api/department';
     constructor(private http:HttpClient){
@@ -18,16 +18,16 @@ export class DepartmentService{
     getDepartment(){
         this.http.get<{message:string,post}>(this.get_dept).subscribe((postData)=>{
             this. departments = postData.post;
-            this.postUpdated.next([...this.departments])
+            this.departmentUpdated.next([...this.departments])
           }); 
     }
 
     getDepartmentListstner(){
-        return this.postUpdated.asObservable();
+        return this.departmentUpdated.asObservable();
     }
 
     addDepartment(recievedData:department){
         this.departments.push(recievedData);
-        this.postUpdated.next([...this.departments]);
+        this.departmentUpdated.next([...this.departments]);
     }
 }

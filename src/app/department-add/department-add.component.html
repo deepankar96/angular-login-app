@@ -1,8 +1,13 @@
 <app-header></app-header>
-<mat-card class="input-filed">
+<mat-card class="input-filed" *ngIf="isLoading">
     <form (submit)="onNewDepartment(postForm)" #postForm="ngForm">
         <mat-form-field>
-            <input matInput type="text" name="collegeid" placeholder="College ID" required ngModel>
+            <mat-label>College</mat-label>
+            <mat-select name="collegeid" required ngModel>
+              <mat-option *ngFor="let College of colleges" [value]="College.collegeId">
+                {{College.collegeName}}
+              </mat-option>
+            </mat-select>        
         </mat-form-field>
         <br>
         <mat-form-field>
@@ -25,7 +30,8 @@
             <input matInput  type ="password" name="departmentpassword"placeholder="Department Password" required ngModel>
         </mat-form-field>
         <br>
-        <button mat-raised-button color="primary" type="submit">Add Department</button>
+        <button mat-raised-button color="primary" type="submit" >Add Department</button>
         <br>
-    </form>
+    </form>    
 </mat-card>
+<h1 *ngIf="!isLoading">Loading</h1>

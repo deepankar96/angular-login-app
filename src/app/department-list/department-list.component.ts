@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { department } from 'src/model';
-import { DepartmentService } from '../app.services';
+import { DepartmentService } from '../services/department.services';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
