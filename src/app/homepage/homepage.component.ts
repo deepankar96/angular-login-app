@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CollegeLoginService } from '../services/collegeLogin.services';
 
 @Component({
   selector: 'app-homepage',
@@ -8,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    public collegeLoginService:CollegeLoginService) { }
 
   ngOnInit(): void {
+    if(!this.collegeLoginService.getCollegeId()){
+      this.router.navigate(['collegeLogin'])
+    }
   }
 
   routeToDepartment(){

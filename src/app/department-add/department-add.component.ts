@@ -7,6 +7,7 @@ import { from, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
+import { CollegeLoginService } from '../services/collegeLogin.services';
 
 @Component({
   selector: 'app-department-add',
@@ -15,24 +16,29 @@ import { element } from 'protractor';
 })
 export class DepartmentAddComponent implements OnInit,OnDestroy {
   deptid=0;
-  colleges:college[] = [];
+  // colleges:college[] = [];
   private collegeSub:Subscription;
-  isLoading:boolean = false;
+  isLoading:boolean = true;
+  collegeId:string;
 
 
   url_post="http://localhost:3000/api/adddept";
-  constructor(public DepartmentServices:DepartmentService,private http:HttpClient,private router:Router,public CollegeService:CollegeService) { 
+  constructor(public DepartmentServices:DepartmentService,
+    private http:HttpClient,
+    private router:Router,
+    public collegeLoginService:CollegeLoginService) { 
   }
 
   ngOnInit(): void {
-    this.CollegeService.getCollege();
-    this.collegeSub = this.CollegeService.getCollegeListstner().subscribe(
-      (collegeFromDatabase:college[])=>{
-        this.colleges = collegeFromDatabase;
-        this.isLoading=true;
-        console.log(this.colleges)
-      }
-    );
+    this.collegeId = this.collegeLoginService.getCollegeId()
+    // this.CollegeService.getCollege();
+    // this.collegeSub = this.CollegeService.getCollegeListstner().subscribe(
+    //   (collegeFromDatabase:college[])=>{
+    //     this.colleges = collegeFromDatabase;
+    //     this.isLoading=true;
+    //     console.log(this.colleges)
+    //   }
+    // );
   }
 
 
@@ -43,7 +49,7 @@ export class DepartmentAddComponent implements OnInit,OnDestroy {
     }
     const sendingData:department = {
       id:this.deptid,
-      collegeid:postForm.value.collegeid,
+      collegeid:this.collegeId,
       departmentid:postForm.value.departmentid,
       departmentname:postForm.value.departmentname,
       hodid:postForm.value.hodid,
@@ -60,7 +66,7 @@ export class DepartmentAddComponent implements OnInit,OnDestroy {
   }
   
   ngOnDestroy():void{
-    this.collegeSub.unsubscribe();
+    // this.collegeSub.unsubscribe();
   }
 
 }

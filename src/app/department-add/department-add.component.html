@@ -1,14 +1,14 @@
 <app-header></app-header>
 <mat-card class="input-filed" *ngIf="isLoading">
     <form (submit)="onNewDepartment(postForm)" #postForm="ngForm">
-        <mat-form-field>
+        <!-- <mat-form-field>
             <mat-label>College</mat-label>
             <mat-select name="collegeid" required ngModel>
               <mat-option *ngFor="let College of colleges" [value]="College.collegeId">
                 {{College.collegeName}}
               </mat-option>
             </mat-select>        
-        </mat-form-field>
+        </mat-form-field> -->
         <br>
         <mat-form-field>
             <input matInput  type ="text" name="departmentid" placeholder="Department ID" required ngModel>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CollegeLoginService } from '../services/collegeLogin.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-college-login-page',
@@ -14,7 +15,7 @@ export class CollegeLoginPageComponent implements OnInit {
 
   url= 'http://localhost:3000/api/collegeLogin';
 
-  constructor(private http:HttpClient,public collegeLoginService:CollegeLoginService) { }
+  constructor(private http:HttpClient,public collegeLoginService:CollegeLoginService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,9 +25,7 @@ export class CollegeLoginPageComponent implements OnInit {
       (responseData)=>{
         if(responseData.message == "success"){
           this.collegeLoginService.loginTocollege(responseData.collegeId,responseData.token)
-          console.log(this.collegeLoginService.getCollegeId())
-          console.log(this.collegeLoginService.getToken())
-
+          this.router.navigate([''])
         }
         else{
           console.log(responseData.message)
