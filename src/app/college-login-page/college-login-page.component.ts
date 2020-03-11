@@ -11,7 +11,7 @@ export class CollegeLoginPageComponent implements OnInit {
 
 
 
-  url= ''
+  url= 'http://localhost:3000/api/collegeLogin';
 
   constructor(private http:HttpClient) { }
 
