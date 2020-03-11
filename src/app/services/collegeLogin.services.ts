@@ -11,7 +11,7 @@ export class CollegeLoginService{
     private collegeId:string;
 
     loginTocollege(collegeId:string,token:string){
-        this.token = "Bearer " + token,
+        this.token =token,
         this.collegeId =collegeId
     }
 
@@ -21,5 +21,11 @@ export class CollegeLoginService{
 
     getToken(){
         return this.token
+    }
+
+    logout(){
+        this.token = null
+
+        this.collegeId = null
     }
 }

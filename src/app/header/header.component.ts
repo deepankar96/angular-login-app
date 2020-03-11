@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CollegeLoginService } from '../services/collegeLogin.services';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  routingStatus:string = "Individual";
 
-  constructor() { }
+  constructor(public colllegeLoginService:CollegeLoginService) { }
 
   ngOnInit(): void {
+  }
+
+  reset(){
+    this.colllegeLoginService.logout()
   }
 
 }

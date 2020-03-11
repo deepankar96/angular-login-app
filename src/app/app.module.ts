@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -31,8 +31,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component'
-
+import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component';
+import {collegeAuthInterceptor} from './college-interceptor';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { CollegeLoginPageComponent } from './college-login-page/college-login-pa
     MatDividerModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [   {provide:HTTP_INTERCEPTORS,useClass:collegeAuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
