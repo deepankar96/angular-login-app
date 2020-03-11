@@ -30,7 +30,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DepartmentAddComponent } from './department-add/department-add.component';
-import { HomepageComponent } from './homepage/homepage.component'
+import { HomepageComponent } from './homepage/homepage.component';
+import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component'
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { HomepageComponent } from './homepage/homepage.component'
     DepartmentListComponent,
     DepartmentAddComponent,
     HomepageComponent,
+    CollegeLoginPageComponent,
   ],
   imports: [
     BrowserModule,
