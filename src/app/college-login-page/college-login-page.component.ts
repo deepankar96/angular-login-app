@@ -34,4 +34,8 @@ export class CollegeLoginPageComponent implements OnInit {
     );
   }
 
+  routeToAddCollege(){
+    this.router.navigate(['addCollege'])
+  }
+
 }

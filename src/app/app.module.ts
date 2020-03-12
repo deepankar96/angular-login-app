@@ -33,6 +33,7 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component';
 import {collegeAuthInterceptor} from './college-interceptor';
+import { AddCollegeComponent } from './add-college/add-college.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {collegeAuthInterceptor} from './college-interceptor';
     DepartmentAddComponent,
     HomepageComponent,
     CollegeLoginPageComponent,
+    AddCollegeComponent,
   ],
   imports: [
     BrowserModule,

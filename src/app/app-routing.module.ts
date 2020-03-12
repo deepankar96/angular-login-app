@@ -5,6 +5,7 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component';
+import { AddCollegeComponent } from './add-college/add-college.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   {path:'department',component: DepartmentListComponent},
   {path:'addDepartment', component:DepartmentAddComponent},
   {path:'collegeLogin', component:CollegeLoginPageComponent},
+  {path:'addCollege', component:AddCollegeComponent},
+
 ];
 
 @NgModule({
