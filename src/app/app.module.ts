@@ -16,6 +16,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 
@@ -62,7 +64,8 @@ import { AddCollegeComponent } from './add-college/add-college.component';
     MatSidenavModule,
     MatGridListModule,
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [   {provide:HTTP_INTERCEPTORS,useClass:collegeAuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
