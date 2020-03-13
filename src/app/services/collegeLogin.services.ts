@@ -17,10 +17,12 @@ export class CollegeLoginService{
     }
 
     getCollegeId(){
+        this.collegeId = localStorage.getItem("collegeId")
         return this.collegeId
     }
 
     getToken(){
+        this.token = localStorage.getItem("token")
         return this.token
     }
 
