@@ -13,6 +13,7 @@ export class CollegeLoginService{
     loginTocollege(collegeId:string,token:string){
         this.token =token,
         this.collegeId =collegeId
+        this.saveToken()
     }
 
     getCollegeId(){
@@ -25,7 +26,17 @@ export class CollegeLoginService{
 
     logout(){
         this.token = null
-
         this.collegeId = null
+        this.removeToken()
+    }
+
+    private saveToken(){
+        localStorage.setItem("token",this.token);
+        localStorage.setItem("collegeId",this.collegeId)
+    }
+
+    private removeToken(){
+        localStorage.removeItem("token")
+        localStorage.removeItem("collegeId")
     }
 }
