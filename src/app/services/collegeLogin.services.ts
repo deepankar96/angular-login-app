@@ -17,8 +17,13 @@ export class CollegeLoginService{
     }
 
     getCollegeId(){
+        const currentTimeInDate = new Date()
+        var currentTime = currentTimeInDate.getTime()
+        var expireTime = parseInt(localStorage.getItem("expiresIn"))
+        if(expireTime>=currentTime){
         this.collegeId = localStorage.getItem("collegeId")
         return this.collegeId
+        }
     }
 
     getToken(){
@@ -34,11 +39,15 @@ export class CollegeLoginService{
 
     private saveToken(){
         localStorage.setItem("token",this.token);
-        localStorage.setItem("collegeId",this.collegeId)
-    }
+        localStorage.setItem("collegeId",this.collegeId);
+        const expireTime = new Date()
+        const expire = (expireTime.getTime() + 3600000).toString();
+        localStorage.setItem("expiresIn",expire)
+        }
 
     private removeToken(){
         localStorage.removeItem("token")
         localStorage.removeItem("collegeId")
+        localStorage.removeItem("expiresIn")
     }
 }
