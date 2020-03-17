@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -9,6 +10,10 @@ export class DepartmentLoginService{
     private token:string;
     private collegeId:string;
     private departmentId:string;
+
+    constructor(private router:Router){
+
+    }
 
     loginToDepartment(token:string,departmentId:string,collegeId:string){
         this.token = token;
@@ -41,6 +46,7 @@ export class DepartmentLoginService{
         this.collegeId = null
         this.departmentId = null
         this.removeToken()
+        this.router.navigate(['collegeLogin'])
     }
 
     private saveToken(){

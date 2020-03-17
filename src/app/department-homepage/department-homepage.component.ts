@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentLoginService } from '../services/departmentLogin.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-department-homepage',
@@ -8,10 +9,16 @@ import { DepartmentLoginService } from '../services/departmentLogin.services';
 })
 export class DepartmentHomepageComponent implements OnInit {
 
-  constructor(public departmentLoginService:DepartmentLoginService) { }
+  constructor(public departmentLoginService:DepartmentLoginService,private router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.departmentLoginService.getCollegeId())
+    if(this.departmentLoginService.getDepartmentId()==null){
+      this.router.navigate(['collegeLogin'])
+    }
+  }
+
+  logout(){
+    this.departmentLoginService.logout();
   }
 
 }
