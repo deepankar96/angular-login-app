@@ -40,7 +40,7 @@ export class CollegeLoginService{
         localStorage.setItem("token",this.token);
         localStorage.setItem("collegeId",this.collegeId);
         const expireTime = new Date()
-        const expire = (expireTime.getTime() + 900000).toString();
+        const expire = (expireTime.getTime() + 43200000).toString();
         localStorage.setItem("expiresIn",expire)
         }
 

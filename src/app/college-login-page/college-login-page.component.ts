@@ -18,6 +18,9 @@ export class CollegeLoginPageComponent implements OnInit {
   constructor(private http:HttpClient,public collegeLoginService:CollegeLoginService,private router:Router) { }
 
   ngOnInit(): void {
+    if(this.collegeLoginService.getCollegeId()){
+      this.router.navigate([''])
+    }
   }
 
   onSubmit(postForm:NgForm){
