@@ -34,6 +34,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component';
 import {collegeAuthInterceptor} from './college-interceptor';
 import { AddCollegeComponent } from './add-college/add-college.component';
+import { DepartmentLoginPageComponent } from './department-login-page/department-login-page.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AddCollegeComponent } from './add-college/add-college.component';
     HomepageComponent,
     CollegeLoginPageComponent,
     AddCollegeComponent,
+    DepartmentLoginPageComponent,
   ],
   imports: [
     BrowserModule,
