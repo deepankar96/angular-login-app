@@ -17,11 +17,10 @@ export class DepartmentLoginPageComponent implements OnInit {
   }
 
   loginToDepartment(postform:NgForm){
-    this.http.post<{}>(this.url,postform.value).subscribe(
+    this.http.post<{message:string,token:string,collegeId:string,departmentId:string}>(this.url,postform.value).subscribe(
       (responseData)=>{
-        console.log(postform.value)
+        console.log(responseData)
       }
     );
   }
-
 }
