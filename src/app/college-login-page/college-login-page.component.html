@@ -4,6 +4,7 @@
 </mat-toolbar>
 <br>
 <mat-card style="padding-left: 2%;">
+    <h2>Login to College</h2>
 <form (submit)="onSubmit(postForm)" #postForm="ngForm">
     <mat-form-field>
         <input matInput type="text" name="collegeId" placeholder="College Id" required ngModel> 
@@ -16,5 +17,4 @@
     <button mat-mat-raised-button color="primary" type="submit">Login</button> 
 </form>
 </mat-card>
-<br>
 <app-department-login-page></app-department-login-page>
