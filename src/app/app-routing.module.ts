@@ -6,6 +6,7 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { CollegeLoginPageComponent } from './college-login-page/college-login-page.component';
 import { AddCollegeComponent } from './add-college/add-college.component';
+import { DepartmentHomepageComponent } from './department-homepage/department-homepage.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'addDepartment', component:DepartmentAddComponent},
   {path:'collegeLogin', component:CollegeLoginPageComponent},
   {path:'addCollege', component:AddCollegeComponent},
+  {path:'departmentHomepage', component:DepartmentHomepageComponent},
 
 ];
 
