@@ -36,6 +36,13 @@ export class DepartmentLoginService{
         }
     }
 
+    logout(){
+        this.token = null
+        this.collegeId = null
+        this.departmentId = null
+        this.removeToken()
+    }
+
     private saveToken(){
         localStorage.setItem("token",this.token);
         localStorage.setItem("collegeId",this.collegeId);
@@ -44,5 +51,11 @@ export class DepartmentLoginService{
         const expire = (expireTime.getTime() + 43200000).toString();
         localStorage.setItem("expiresIn",expire)
         }
+    private removeToken(){
+        localStorage.removeItem("token")
+        localStorage.removeItem("collegeId")
+        localStorage.removeItem("departmentId")
+        localStorage.removeItem("expiresIn")
+    }
 
 }
